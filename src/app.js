@@ -1,37 +1,22 @@
-const hamburger = document.querySelector('.hamburger');
-const navList = document.querySelector('#nav-list');
+const hamburgerButton = document.getElementById('navbar');
+const navList = document.getElementById('nav-list');
 
-// Toggle menu
-hamburger.addEventListener('click', (e) => {
-    e.stopPropagation();
-    navList.classList.toggle('active');
-    // Optional: Toggle aria-expanded for accessibility
-    hamburger.setAttribute('aria-expanded', 
-        navList.classList.contains('active'));
+hamburgerButton.addEventListener('click', () => {
+    navList.classList.toggle('show');
 });
 
-// Close menu when clicking outside
+// Close menu when clicking a link or outside the menu
 document.addEventListener('click', (e) => {
-    if (navList.classList.contains('active') && 
+    if (navList.classList.contains('show') && 
         !navList.contains(e.target) && 
-        !hamburger.contains(e.target)) {
-        navList.classList.remove('active');
-        hamburger.setAttribute('aria-expanded', 'false');
+        !hamburgerButton.contains(e.target)) {
+        navList.classList.remove('show');
     }
-});
-
-// Close menu when clicking a link
-navList.querySelectorAll('a').forEach(link => {
-    link.addEventListener('click', () => {
-        navList.classList.remove('active');
-        hamburger.setAttribute('aria-expanded', 'false');
-    });
 });
 
 // Close menu on escape key
 document.addEventListener('keydown', (e) => {
-    if (e.key === 'Escape' && navList.classList.contains('active')) {
-        navList.classList.remove('active');
-        hamburger.setAttribute('aria-expanded', 'false');
+    if (e.key === 'Escape' && navList.classList.contains('show')) {
+        navList.classList.remove('show');
     }
 });
