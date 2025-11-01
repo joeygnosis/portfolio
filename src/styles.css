@@ -1,25 +1,30 @@
+/* Import fonts */
 @import url('https://fonts.googleapis.com/css2?family=Bodoni+Moda:ital,opsz,wght@0,6..96,400..900;1,6..96,400..900&family=Vollkorn:ital,wght@0,400..900;1,400..900&display=swap');
 
-/* Light mode (default) */
+/* CSS Variables - Light mode (default) */
 :root {
-    --bg-color: #White;
+    /* Colors */
+    --bg-color: white;
     --text-color: black;
-    --footer-bg: #White;
+    --footer-bg: white;
     --button-text: white;
     --link-color: #D21F3C;
+    
+    /* Spacing */
+    --section-padding: 40px 20px;
+    --content-max-width: 1200px;
 }
 
-/* Dark mode */
+/* Dark mode overrides */
 @media (prefers-color-scheme: dark) {
     :root {
         --bg-color: black;
         --text-color: white;
-        --hero-bg: black;
         --footer-bg: black;
-        --button-text: white;
-        --link-color: #D21F3C;
     }
 }
+
+/* Base styles */
 
 body {
     background-color: var(--bg-color);
@@ -31,24 +36,40 @@ body {
     flex-direction: column;
 }
 
-section {
-    background-color: var(--bg-color);
+/* Typography */
+h1 {
+    font-size: clamp(40px, 8vw, 70px);
+    margin: 0;
+    font-weight: 700;
 }
 
-.hero, 
-.sub-section,
-.sub-section-alternative,
-footer {
-    background-color: var(--bg-color);
-    color: var(--text-color);
+h2 {
+    font-size: clamp(36px, 6vw, 60px);
+    font-weight: 700;
 }
 
+h3 {
+    font-weight: 700;
+}
+
+p {
+    font-size: clamp(18px, 3vw, 24px);
+    font-weight: 400;
+    margin: 15px 0;
+    line-height: 1.5;
+}
+
+a {
+    text-decoration: none;
+    color: var(--link-color);
+}
+
+/* Layout components */
 .hero {
     height: 100vh;
     min-height: 500px;
-    padding: 20px;
+    padding: var(--section-padding);
     box-sizing: border-box;
-    font-size: 40px;
     display: flex;
     flex-direction: column;
 }
@@ -59,20 +80,16 @@ footer {
     justify-content: space-evenly;
     align-items: center;
     flex: 1;
-    padding: 40px 20px;
     gap: 20px;
     padding-bottom: 80px;
 }
 
 .hero-headshot {
-    justify-content: center;
     width: 250px;
     height: 250px;
     object-fit: cover;
     border-radius: 50%;
-    margin-bottom: 0;
-    box-shadow: var(--card-shadow);
-    margin-top: -40px;
+    box-shadow: 0 4px 20px rgba(0, 0, 0, 0.2);
 }
 
 .hero-text {
@@ -89,24 +106,29 @@ footer {
     margin-top: auto;
 }
 
+/* Navigation */
 nav {
     display: flex;
-    justify-content: space-between;
+    justify-content: center;
     align-items: center;
+    width: 100%;
+    padding: var(--section-padding);
 }
 
 #nav-list {
     display: flex;
     list-style-type: none;
-    width: 500px;
+    width: 100%;
+    max-width: var(--content-max-width);
     font-size: 24px;
-    justify-content: space-evenly;
+    justify-content: center;
+    gap: 40px;
     margin: 0;
     padding: 0;
 }
 
 .navbar {
-    display: none;  /* Hide by default on desktop */
+    display: none;
     background: none;
     border: none;
     font-size: 24px;
@@ -114,29 +136,56 @@ nav {
     cursor: pointer;
 }
 
+.navbar:hover {
+    opacity: 0.8;
+}
+
+/* Responsive styles */
 @media only screen and (max-width: 1000px) {
+    /* Navigation adjustments */
+    nav {
+        justify-content: flex-end;
+        padding: 20px;
+    }
+
     .navbar {
         display: block;
+        margin-left: 20px;
+        z-index: 100;
     }
     
     #nav-list {
         display: none;
         position: fixed;
-        right: 0;
+        left: 0;
         top: 60px;
         background-color: var(--bg-color);
         width: 100%;
         text-align: center;
         padding: 20px 0;
+        box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+        z-index: 99;
     }
 
     #nav-list.show {
         display: flex;
         flex-direction: column;
+        gap: 20px;
     }
 
     #nav-list li {
         margin: 8px 0;
+    }
+    
+    /* Project list adjustments */
+    .projects-list {
+        flex-direction: column;
+        overflow-x: visible;
+    }
+    
+    .project-item {
+        border-left: none;
+        border-bottom: 2px solid var(--text-color);
     }
 }
 
@@ -146,7 +195,7 @@ ul {
     width: 500px;
     font-size: 24px;
     font-weight: 400;
-    justify-content: space-around;
+    justify-content: space-evenly;
     margin: 0;
     padding: 0;
 }
@@ -155,10 +204,7 @@ ul.show {
     display: block;
 }
 
-li {
-    
-    text-decoration: none;
-}
+
 
 h1 {
     font-size: clamp(40px, 8vw, 70px);
@@ -208,16 +254,13 @@ a {
     padding-top: 5px;
     color: var(--button-text);
     margin: 20px auto 0;
-    transition: transform 0.2s, background-color 0.2s;
 }
 
 .button:hover {
-    transform: translateY(-2px);
     background-color: var(--button-hover);
 }
 
 .button:active {
-    transform: translateY(1px);
     background-color: var(--button-active);
     color: var(--text-color);
 }
@@ -234,14 +277,24 @@ a {
     padding: 66px;
 }
 
+/* Projects section */
 .projects-list {
     display: flex;
-    flex-direction: row;
     gap: 40px;
-    padding: 20px;
+    padding: var(--section-padding);
     overflow-x: auto;
     margin: 0 auto;
-    max-width: 1200px;
+    max-width: var(--content-max-width);
+    scrollbar-width: thin;
+}
+
+.projects-list::-webkit-scrollbar {
+    height: 6px;
+}
+
+.projects-list::-webkit-scrollbar-thumb {
+    background-color: var(--text-color);
+    border-radius: 3px;
 }
 
 .project-item {
@@ -269,76 +322,49 @@ a {
     color: var(--link-color);
     font-weight: 600;
     margin-top: 10px;
-    transition: transform 0.2s ease;
 }
 
-.project-link:hover {
-    transform: translateX(5px);
-}
-
+/* Footer and social links */
 .socials {
     display: flex;
     justify-content: center;
     gap: 20px;
     flex-wrap: wrap;
+    margin: 20px 0;
+}
 
 .social {
-    margin: 20px;
+    opacity: 0.9;
 }
 
-
-/* Add styles for the about page hero section */
-.about-hero {
-    height: auto;
-    min-height: 20vh;
-    padding: 20px 0;
+.social:hover {
+    opacity: 1;
 }
 
-/* Adjust the about section spacing */
-#about-me {
-    padding-top: 40px;
+/* Sections */
+.sub-section,
+.sub-section-alternative {
+    padding: var(--section-padding);
+    text-align: center;
 }
 
-/* Add styles for the projects page */
-.projects-hero {
-    height: auto;
-    min-height: 20vh;
-    padding: 20px 0;
-}
-
+#about-me,
 #projects {
-    padding-top: 40px;
-}
-
-/* Smooth scrolling */
-html {
-    scroll-behavior: smooth;
+    padding-top: var(--section-padding);
 }
 
 .information {
-    max-width: 800px;
+    max-width: var(--content-max-width);
     margin: 0 auto;
+    padding: var(--section-padding);
 }
 
-/* Center the About me section header */
-.sub-section h2 {
+/* Footer */
+footer {
+    background-color: var(--footer-bg);
+    color: var(--text-color);
     text-align: center;
-    width: 100%;
-    margin-bottom: 30px;
+    padding: var(--section-padding);
+    margin-top: auto;
 }
 
-/* Desktop styles */
-@media only screen and (min-width: 768px) {
-    .project-container {
-        flex-direction: row;
-        justify-content: center;
-    }
-    
-    .project-card {
-        flex: 0 1 300px; /* Don't grow, can shrink, base width 300px */
-    }
-}
-
-@view-transition {
-    navigation: auto;
-}
