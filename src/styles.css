@@ -1,21 +1,12 @@
-@import url('https://fonts.googleapis.com/css2?family=Atkinson+Hyperlegible+Mono:ital,wght@0,200..800;1,200..800&display=swap');
-* {
-    font-family: 'Atkinson Hyperlegible Mono', sans-serif;
-}
+@import url('https://fonts.googleapis.com/css2?family=Bodoni+Moda:ital,opsz,wght@0,6..96,400..900;1,6..96,400..900&family=Vollkorn:ital,wght@0,400..900;1,400..900&display=swap');
 
 /* Light mode (default) */
 :root {
-    --bg-color: #cecbc1;
+    --bg-color: #White;
     --text-color: black;
-    --card-bg: white;
-    --card-shadow: 5px 5px 20px rgba(0, 0, 0, 0.3);
-    --hero-bg: #cecbc1;
-    --footer-bg: #cecbc1;
-    --button-bg: darkolivegreen;
-    --button-hover: darkgreen;
-    --button-active: darkkhaki;
+    --footer-bg: #White;
     --button-text: white;
-    --link-color: darkolivegreen;
+    --link-color: #D21F3C;
 }
 
 /* Dark mode */
@@ -23,15 +14,10 @@
     :root {
         --bg-color: black;
         --text-color: white;
-        --card-bg: #1a1a1a;
-        --card-shadow: 5px 5px 20px rgba(0, 0, 0, 0.8);
         --hero-bg: black;
         --footer-bg: black;
-        --button-bg: #4a5d23;
-        --button-hover: #2d3a15;
-        --button-active: #bdb76b;
         --button-text: white;
-        --link-color: #90a955;
+        --link-color: #D21F3C;
     }
 }
 
@@ -70,7 +56,7 @@ footer {
 .hero-area {
     display: flex;
     flex-direction: column;
-    justify-content: center;
+    justify-content: space-evenly;
     align-items: center;
     flex: 1;
     padding: 40px 20px;
@@ -114,7 +100,7 @@ nav {
     list-style-type: none;
     width: 500px;
     font-size: 24px;
-    justify-content: space-around;
+    justify-content: space-evenly;
     margin: 0;
     padding: 0;
 }
@@ -248,40 +234,46 @@ a {
     padding: 66px;
 }
 
-.headshot-container {
-    display: none;
-}
-
-.project-container {
+.projects-list {
     display: flex;
-    flex-wrap: wrap;
-    justify-content: center;
-    gap: 20px;
+    flex-direction: row;
+    gap: 40px;
     padding: 20px;
+    overflow-x: auto;
+    margin: 0 auto;
+    max-width: 1200px;
 }
 
-.project-card {
-    width: 100%;
-    max-width: 300px;
+.project-item {
+    flex: 1;
+    min-width: 250px;
     padding: 20px;
-    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
-    border-radius: 8px;
-    background-color: white;
-    text-align: center;
-    color: black
+    border-left: 2px solid var(--text-color);
+    text-align: left;
 }
 
-.project-image {
-    width: 100%;
-    height: auto;
-    border-radius: 4px;
-    margin-bottom: 10px;
+.project-item h3 {
+    margin-top: 0;
+    font-size: 24px;
+}
+
+.project-item p {
+    margin: 10px 0;
+    font-size: 16px;
+    line-height: 1.5;
 }
 
 .project-link {
+    display: inline-block;
     text-decoration: none;
     color: var(--link-color);
-    font-weight: 700;
+    font-weight: 600;
+    margin-top: 10px;
+    transition: transform 0.2s ease;
+}
+
+.project-link:hover {
+    transform: translateX(5px);
 }
 
 .socials {
@@ -289,19 +281,11 @@ a {
     justify-content: center;
     gap: 20px;
     flex-wrap: wrap;
-}
 
 .social {
     margin: 20px;
 }
 
-.social svg {
-    transition: transform 0.2s;
-}
-
-.social:hover svg {
-    transform: scale(1.1);
-}
 
 /* Add styles for the about page hero section */
 .about-hero {
@@ -353,4 +337,8 @@ html {
     .project-card {
         flex: 0 1 300px; /* Don't grow, can shrink, base width 300px */
     }
+}
+
+@view-transition {
+    navigation: auto;
 }
