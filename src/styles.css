@@ -3,39 +3,9 @@
 
 /* CSS Variables - Light mode (default) */
 :root {
-    /* Colors */
-    --bg-color: white;
-    --text-color: black;
-    --footer-bg: white;
-    --button-text: white;
-    --link-color: #D21F3C;
-    
-    /* Spacing */
-    --section-padding: 40px 20px;
-    --content-max-width: 1200px;
+  color-scheme: light dark;
+    --link-color: #E30B5D;
 }
-
-/* Dark mode overrides */
-@media (prefers-color-scheme: dark) {
-    :root {
-        --bg-color: black;
-        --text-color: white;
-        --footer-bg: black;
-    }
-}
-
-/* Base styles */
-
-body {
-    background-color: var(--bg-color);
-    color: var(--text-color);
-    margin: 0;
-    padding: 0;
-    min-height: 100vh;
-    display: flex;
-    flex-direction: column;
-}
-
 /* Typography */
 h1 {
     font-size: clamp(40px, 8vw, 70px);
@@ -89,7 +59,7 @@ a {
     height: 250px;
     object-fit: cover;
     border-radius: 50%;
-    box-shadow: 0 4px 20px rgba(0, 0, 0, 0.2);
+    
 }
 
 .hero-text {
@@ -98,13 +68,6 @@ a {
     margin: 0 auto;
 }
 
-footer {
-    background-color: var(--footer-bg);
-    color: var(--text-color);
-    text-align: center;
-    padding: 40px 20px;
-    margin-top: auto;
-}
 
 /* Navigation */
 nav {
@@ -141,7 +104,7 @@ nav {
 }
 
 /* Responsive styles */
-@media only screen and (max-width: 1000px) {
+@media only screen and (max-width: 768px) {
     /* Navigation adjustments */
     nav {
         justify-content: flex-end;
@@ -301,8 +264,7 @@ a {
     flex: 1;
     min-width: 250px;
     padding: 20px;
-    border-left: 2px solid var(--text-color);
-    text-align: left;
+    text-align: center;
 }
 
 .project-item h3 {
@@ -325,38 +287,35 @@ a {
 }
 
 /* Footer and social links */
-.socials {
-    display: flex;
-    justify-content: center;
-    gap: 20px;
-    flex-wrap: wrap;
-    margin: 20px 0;
-}
-
-.social {
-    opacity: 0.9;
-}
-
-.social:hover {
-    opacity: 1;
-}
 
 /* Sections */
-.sub-section,
-.sub-section-alternative {
-    padding: var(--section-padding);
+.sub-section {
     text-align: center;
+    justify-content: center;
 }
 
-#about-me,
-#projects {
-    padding-top: var(--section-padding);
-}
-
-.information {
-    max-width: var(--content-max-width);
+/* Certifications section */
+.certifications-list {
+    display: flex;
+    justify-content: center;
+    width: 100%;
+    max-width: 800px;
     margin: 0 auto;
-    padding: var(--section-padding);
+    padding: 20px;
+}
+
+.certification-item {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    width: 100%;
+}
+
+.certification-item img {
+    max-width: 100%;
+    height: auto;
+    margin: 0 auto 20px;
+    display: block;
 }
 
 /* Footer */
@@ -367,4 +326,3 @@ footer {
     padding: var(--section-padding);
     margin-top: auto;
 }
-
