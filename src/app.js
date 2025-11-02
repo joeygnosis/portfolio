@@ -11,7 +11,14 @@ if (!hamburgerButton || !navList) {
         navList.classList.toggle('show');
     });
 
-    // Close menu when clicking outside or on a link
+    // Close menu when clicking a navigation link
+    navList.addEventListener('click', (event) => {
+        if (event.target.tagName === 'A') {
+            navList.classList.remove('show');
+        }
+    });
+
+    // Close menu when clicking outside
     document.addEventListener('click', (event) => {
         const isMenuOpen = navList.classList.contains('show');
         const clickedOutside = !navList.contains(event.target) && !hamburgerButton.contains(event.target);

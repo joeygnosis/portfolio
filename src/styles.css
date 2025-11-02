@@ -4,9 +4,9 @@
 /* CSS Variables - Light mode (default) */
 :root {
     color-scheme: light dark;
-    --link-color: #E30B5D;
-    --section-padding: 40px 20px;
-    --mobile-padding: 20px;
+    --link-color: #4CAF50;
+    
+    
     --content-max-width: 1200px;
 }
 /* Typography */
@@ -97,13 +97,17 @@ nav {
     display: none;
     background: none;
     border: none;
-    font-size: 24px;
+    font-size: 32px;
     color: var(--text-color);
     cursor: pointer;
+    width: 48px;
+    height: 48px;
+    padding: 8px;
+    border-radius: 8px;
 }
 
 .navbar:hover {
-    opacity: 0.8;
+    background-color: rgba(128, 128, 128, 0.1);
 }
 
 /* Responsive styles */
@@ -121,9 +125,12 @@ nav {
     }
 
     .navbar {
-        display: block;
+        display: flex;
+        align-items: center;
+        justify-content: center;
         margin-left: 20px;
         z-index: 100;
+        -webkit-tap-highlight-color: transparent;
     }
     
     #nav-list {
@@ -166,19 +173,15 @@ nav {
     /* Project list adjustments */
     .projects-list {
         flex-direction: column;
-        overflow-x: visible;
         padding: var(--mobile-padding);
-        gap: 30px;
+        gap: 20px;
     }
     
     .project-item {
-        border-left: none;
-        padding: 0 0 20px 0;
-        border-bottom: 1px solid var(--text-color);
-    }
-
-    .project-item:last-child {
-        border-bottom: none;
+        width: 100%;
+        max-width: 100%;
+        margin: 0;
+        padding: 20px;
     }
 
     /* Certification adjustments */
@@ -186,28 +189,10 @@ nav {
         padding: var(--mobile-padding);
     }
 
-    .certification-item img {
-        width: 100%;
-        max-width: 400px;
+    .certification-item  {
+        padding: var(--mobile-padding);
     }
-
-    /* Typography adjustments */
-    h1 {
-        font-size: clamp(32px, 6vw, 40px);
-    }
-
-    h2 {
-        font-size: clamp(28px, 5vw, 36px);
-        margin-bottom: 20px;
-    }
-
-    h3 {
-        font-size: clamp(20px, 4vw, 24px);
-    }
-
-    p {
-        font-size: clamp(16px, 3vw, 18px);
-    }
+    
 }
 
 ul {
@@ -216,7 +201,7 @@ ul {
     width: 500px;
     font-size: 24px;
     font-weight: 400;
-    justify-content: space-evenly;
+    justify-content: center;
     margin: 0;
     padding: 0;
 }
@@ -303,27 +288,19 @@ a {
 /* Projects section */
 .projects-list {
     display: flex;
+    flex-wrap: wrap;
     gap: 40px;
     padding: var(--section-padding);
-    overflow-x: auto;
     margin: 0 auto;
-    max-width: var(--content-max-width);
-    scrollbar-width: thin;
-}
-
-.projects-list::-webkit-scrollbar {
-    height: 6px;
-}
-
-.projects-list::-webkit-scrollbar-thumb {
-    background-color: var(--text-color);
-    border-radius: 3px;
+    max-width: 1000px;
+    justify-content: center;
 }
 
 .project-item {
     flex: 1;
-    min-width: 250px;
-    padding: 20px;
+    min-width: 280px;
+    max-width: 400px;
+    padding: 30px;
     text-align: center;
 }
 
@@ -361,7 +338,8 @@ a {
     width: 100%;
     max-width: 800px;
     margin: 0 auto;
-    padding: 20px;
+    padding: var(--section-padding);
+    list-style: none;
 }
 
 .certification-item {
@@ -372,10 +350,13 @@ a {
 }
 
 .certification-item img {
-    max-width: 100%;
+    width: 100%;
     height: auto;
-    margin: 0 auto 20px;
+    margin: 0 auto 30px;
     display: block;
+    max-width: 600px;
+    border-radius: 8px;
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
 }
 
 /* Footer */
