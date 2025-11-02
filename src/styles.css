@@ -173,7 +173,7 @@ nav {
     /* Project list adjustments */
     .projects-list {
         flex-direction: column;
-        padding: var(--mobile-padding);
+        
         gap: 20px;
     }
     
