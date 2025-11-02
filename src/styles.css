@@ -8,6 +8,7 @@
     
     
     --content-max-width: 1200px;
+    --content-min-width: 320px;
 }
 /* Typography */
 h1 {
@@ -189,10 +190,10 @@ nav {
         padding: var(--mobile-padding);
     }
 
-    .certification-item  {
-        padding: var(--mobile-padding);
+    .certification-item img {
+        max-width: 100%;
+        height: auto;
     }
-    
 }
 
 ul {
