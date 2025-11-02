@@ -246,10 +246,6 @@ a {
    color: var(--text-color); 
 }
 
-.subtext {
-    padding: 10px;
-}
-
 .button {
     width: 150px;
     height: 35px;
@@ -291,10 +287,10 @@ a {
     display: flex;
     flex-wrap: wrap;
     gap: 40px;
-    padding: var(--section-padding);
+    
     margin: 0 auto;
-    max-width: 1000px;
-    justify-content: center;
+    max-width: 1200px;
+    
 }
 
 .project-item {
@@ -329,7 +325,7 @@ a {
 /* Sections */
 .sub-section {
     text-align: center;
-    justify-content: center;
+    
 }
 
 /* Certifications section */
