@@ -5,10 +5,10 @@
 :root {
     color-scheme: light dark;
     --link-color: #4CAF50;
-    
-    
     --content-max-width: 1200px;
     --content-min-width: 320px;
+    align-items: center;
+    padding: auto;
 }
 /* Typography */
 h1 {
@@ -42,7 +42,7 @@ a {
 .hero {
     height: 100vh;
     min-height: 500px;
-    padding: var(--section-padding);
+   
     box-sizing: border-box;
     display: flex;
     flex-direction: column;
@@ -59,8 +59,8 @@ a {
 }
 
 .hero-headshot {
-    width: 250px;
-    height: 250px;
+    width: 300px;
+    height: 300px;
     object-fit: cover;
     border-radius: 50%;
     
@@ -196,54 +196,12 @@ nav {
     }
 }
 
-ul {
-    display: flex;
-    list-style-type: none;
-    width: 500px;
-    font-size: 24px;
-    font-weight: 400;
-    justify-content: center;
-    margin: 0;
-    padding: 0;
-}
 
-ul.show {
-    display: block;
-}
-
-
-
-h1 {
-    font-size: clamp(40px, 8vw, 70px);
-    margin: 0;
-    font-weight: 700;
-}
-
-h2 {
-    font-size: clamp(36px, 6vw, 60px);
-    font-weight: 700;
-}
-
-h3 {
-    font-weight: 700;
-}
-
-p, .subtext {
-    font-size: clamp(18px, 3vw, 24px);
-    font-weight: 400;
-    margin: 15px 0;
-    line-height: 1.5;
-}
 
 hr {
     margin-left: 20px;
     margin-right: 20px;
     color: var(--text-color);
-}
-
-a {
-   text-decoration: none;
-   color: var(--text-color); 
 }
 
 .button {
@@ -268,36 +226,31 @@ a {
     color: var(--text-color);
 }
 
-.sub-section {
-    padding: 40px 20px;
+/* Sections */
+.sub-section,
+.sub-section-alternative {
+    padding: var(--section-padding);
     text-align: center;
+    width: 100%;
+    box-sizing: border-box;
 }
 
 .sub-section-alternative {
     display: flex;
     flex-direction: column;
-    text-align: center;
-    padding: var(--section-padding);
-    width: 100%;
-    box-sizing: border-box;
 }
 
 /* Projects section */
 .projects-list {
     display: flex;
     flex-wrap: wrap;
-    gap: 40px;
-    
     margin: 0 auto;
-    max-width: 1200px;
-    
-}
+   
 
 .project-item {
     flex: 1;
     min-width: 280px;
     max-width: 400px;
-    padding: 30px;
     text-align: center;
 }
 
@@ -320,13 +273,7 @@ a {
     margin-top: 10px;
 }
 
-/* Footer and social links */
 
-/* Sections */
-.sub-section {
-    text-align: center;
-    
-}
 
 /* Certifications section */
 .certifications-list {
@@ -358,9 +305,5 @@ a {
 
 /* Footer */
 footer {
-    background-color: var(--footer-bg);
-    color: var(--text-color);
-    text-align: center;
-    padding: var(--section-padding);
-    margin-top: auto;
+
 }
